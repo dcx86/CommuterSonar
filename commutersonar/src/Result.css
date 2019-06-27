@@ -13,15 +13,26 @@
 
 .Result__header p {
   margin: 0 auto;
+  margin-left: 1rem;
   padding: 0.5rem;
 }
 
 .Result__body {
   font-weight: bold;
-  max-height: 4rem;
   background-color: wheat;
   margin-left: 3rem;
   margin-right: 3rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.Result__body__info {
+  font-weight: bold;
+  background-color: wheat;
+}
+
+.Result__body__button {
+
 }
 
 .Result__input {

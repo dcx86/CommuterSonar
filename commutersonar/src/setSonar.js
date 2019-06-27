@@ -1,3 +1,5 @@
+import { getUnixTime } from './parsing';
+
 function playSound() {
   const AudioContext = window.AudioContext || window.webkitAudioContext;
   const audioCtx = new AudioContext();
@@ -16,7 +18,7 @@ function playSound() {
   osc.start();
 }
 
-function repeatSound(dateTime) {
+function setSonar(dateTime) {
   const futureTime = getUnixTime(dateTime);
   const timeLeft = (futureTime - Date.now()) / 1000;
   const interval = (futureTime - Date.now()) / 60;
@@ -24,14 +26,7 @@ function repeatSound(dateTime) {
 
   playSound();
   if(timeLeft < 0) return;
-  setTimeout( () => repeatSound(dateTime), interval)
+  setTimeout( () => setSonar(dateTime), interval)
 }
 
-const getUnixTime = (time) => {
-  const [year, month, day] = time.date.split('-');
-  const [hour, minute, second] = time.time.split(':');
-
-  return new Date(year, month-1, day, hour, minute, second).getTime()
-}
-
-export default repeatSound;
+export default setSonar;

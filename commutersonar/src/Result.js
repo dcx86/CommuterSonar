@@ -1,14 +1,19 @@
 import React from 'react';
 import './Result.css';
+import { getUnixTime } from './parsing'
 
-function Result({ stateTripInfo }) {
+function Result({ origin, destination, product }) {
   return (
     <div className="Result">
       <div className="Result__header">
-        { stateTripInfo && <p>{stateTripInfo.name}</p> }
+        { origin && <p>{origin.time} - {destination.time}</p> }
       </div>
       <div className="Result__body">
-        { stateTripInfo && <p>{stateTripInfo.time}</p> }
+        <div className="Result__body__info">
+          { product && <p>{product.name}</p> }
+          { destination && <p>in { origin.time } from { origin.name }</p>}
+        </div>
+        <button className="Result__body__button">SET SONAR</button>
       </div>
     </div>
   );

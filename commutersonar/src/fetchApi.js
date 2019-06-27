@@ -14,7 +14,6 @@ export const fetchCurrentGeolocation = (setState) => {
 export const fetchTripInfo = (origin, destination, setState) => {
   return fetch(`https://api.resrobot.se/v2/trip?key=${process.env.REACT_APP_RESROBOT_API_KEY}&originCoordLat=${origin.lat}&originCoordLong=${origin.lon}&destCoordLat=${destination.lat}&destCoordLong=${destination.lon}&format=json`)
   .then(res => res.json())
-  .then(data => console.log(data.Trip))
   .then(data => setState(data.Trip))
   .catch(err => console.log(err));
 }

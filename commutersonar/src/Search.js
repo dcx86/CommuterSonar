@@ -12,11 +12,11 @@ function Search({ stateTripInfo, setStateTripInfo }) {
     if (stateOrigin && stateDestination) {
       fetchTripInfo(stateOrigin, stateDestination, setStateTripInfo)
     }
-  }, [ stateOrigin, stateDestination ])
+  }, [ stateOrigin, stateDestination, setStateTripInfo ])
   
-  // useEffect(() => {
-  //   if (stateTripInfo) setSonar(stateTripInfo);
-  // }, [ stateTripInfo ]) 
+  useEffect(() => {
+    // if (stateTripInfo) setSonar(stateTripInfo);
+  }, [ stateTripInfo ]) 
 
   const searchTrip = () => {
     const trip = getInput();
@@ -38,6 +38,10 @@ function Search({ stateTripInfo, setStateTripInfo }) {
     return { origin, destination }
   }
 
+  const parseTrip = ( tripInfo ) => {
+
+  }
+
   return (
     <nav className="Search">
       <div className="Search__header">
@@ -46,7 +50,10 @@ function Search({ stateTripInfo, setStateTripInfo }) {
       <input className="Search__input" type="text" placeholder="From: " hidden></input>
       <input className="Search__input" type="text" placeholder="Hi, where do you want to go?"></input>
       <button className="Search__button" onClick={searchTrip}>Search</button>
-      <Result stateTripInfo={stateTripInfo} />
+      { stateTripInfo && stateTripInfo.map((trip, i) => {
+        const { Origin, Destination, Product } = trip.LegList.Leg[1];
+        return ( <Result key={i} origin={Origin} destination={Destination} product={Product} /> );
+      })}
     </nav>
   );
 }

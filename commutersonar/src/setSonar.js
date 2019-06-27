@@ -16,16 +16,17 @@ function playSound() {
   osc.start();
 }
 
-function repeatSound(time) {
-  const deadline = time + 60000;
-  const currentTime = Date.now();
-  const timeLeft = (deadline - currentTime) / 1000;
-  const interval = (deadline - currentTime) / 6;
-  console.log(timeLeft);
+function repeatSound(deadline) {
+  console.log(deadline)
+  // const deadline = time + 60000;
+  // const currentTime = Date.now();
+  // const timeLeft = (deadline - currentTime) / 1000;
+  // const interval = (deadline - currentTime) / 6;
+  // console.log(timeLeft);
 
-  playSound();
-  if(timeLeft < 0) return;
-  setTimeout( () => repeatSound(time), interval)
+  // playSound();
+  // if(timeLeft < 0) return;
+  // setTimeout( () => repeatSound(time), interval)
 }
 
 export default repeatSound;

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './Nav.css';
+import './Search.css';
 import setSonar from './setSonar';
 import {getGeolocation, getTime} from './resrobot';
 

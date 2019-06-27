@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Header from './Header';
-import Nav from './Nav';
+import Search from './Search';
 import Main from './Main';
 import Footer from './Footer';
 
@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Nav />
+      <Search />
       <Main />
       <Footer />
     </div>

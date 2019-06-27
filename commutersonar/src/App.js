@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Header from './Header';
 import Search from './Search';
-import Main from './Main';
+import Workspace from './Workspace';
 import Footer from './Footer';
 
 import './App.css';
@@ -13,7 +13,7 @@ function App() {
     <div className="App">
       <Header />
       <Search stateTripInfo={stateTripInfo} setStateTripInfo={setStateTripInfo}/>
-      <Main stateTripInfo={stateTripInfo} setStateTripInfo={setStateTripInfo}/>
+      <Workspace stateTripInfo={stateTripInfo} />
       <Footer />
     </div>
   );

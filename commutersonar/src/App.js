@@ -1,12 +1,16 @@
 import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
+import makeSound from './sound';
 
 function App() {
+
   const getInput = () => {
     const [ travelFrom, travelTo ] = document.querySelectorAll('input');
-    console.log(travelFrom.value, travelTo.value)
+    makeSound(travelTo.value);
   }
+
+
 
   return (
     <div className="App">

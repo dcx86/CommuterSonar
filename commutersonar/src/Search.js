@@ -41,9 +41,9 @@ function Nav() {
       <div className="Search__header">
         <p>Search journey</p>
       </div>
-      <input className="Search__input" type="text" placeholder="From:"></input>
-      <input className="Search__input" type="text" placeholder="To:"></input>
-      <button className="Search__button" onClick={search}>Search</button>
+      <input className="Search__input" type="text" placeholder="Hi, where do you want to go?"></input>
+      { false && <input className="Search__input" type="text" placeholder="Hi, where do you want to go?"></input> }}
+      { false && <button className="Search__button" onClick={search}>Search</button> }
     </nav>
   );
 }

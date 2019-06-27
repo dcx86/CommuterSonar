@@ -7,7 +7,6 @@
 
 .Header__logo {
   margin-left: 1rem;
-  animation: Header__logo--spin infinite 20s linear;
   height: 2rem;
   pointer-events: none;
 }

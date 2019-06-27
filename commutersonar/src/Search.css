@@ -5,22 +5,21 @@
 }
 
 .Search__header {
+  font-weight: bold;
   max-height: 3rem;
   background-color: #048f46;
   margin-left: 3rem;
   margin-right: 3rem;
-  border-radius: 0.1rem;
 }
 
 .Search__input {
-  min-height: 2rem;
+  min-height: 4rem;
   margin-bottom: 0.5rem;
   margin-left: 3rem;
   margin-right: 3rem;
-  border-radius: 0.1rem;
   border: none;
-  padding-left: 0.5rem;
-  font-size: 1rem;
+  padding-left: 0.8rem;
+  font-size: 1.2rem;
 }
 
 .Search__button {

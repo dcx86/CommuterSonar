@@ -1,6 +1,6 @@
 import React from 'react';
 import icon from './icons/hearing.svg';
-import './App.css';
+import './Main.css';
 
 function Main() {
   return (

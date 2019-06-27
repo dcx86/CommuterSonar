@@ -1,10 +1,10 @@
-.Nav {
+.Search {
   margin-top: 2rem;
   display: flex;
   flex-direction: column;
 }
 
-.Nav__header {
+.Search__header {
   max-height: 3rem;
   background-color: #048f46;
   margin-left: 3rem;
@@ -12,7 +12,7 @@
   border-radius: 0.1rem;
 }
 
-.Nav__input {
+.Search__input {
   min-height: 2rem;
   margin-bottom: 0.5rem;
   margin-left: 3rem;
@@ -23,7 +23,7 @@
   font-size: 1rem;
 }
 
-.Nav__button {
+.Search__button {
   border: none;
   min-height: 2rem;
   margin-top: 0.5rem;

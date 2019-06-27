@@ -37,13 +37,13 @@ function Nav() {
   }
 
   return (
-    <nav className="Nav">
-      <div className="Nav__header">
+    <nav className="Search">
+      <div className="Search__header">
         <p>Search journey</p>
       </div>
-      <input className="Nav__input" type="text" placeholder="From:"></input>
-      <input className="Nav__input" type="text" placeholder="To:"></input>
-      <button className="Nav__button" onClick={search}>Search</button>
+      <input className="Search__input" type="text" placeholder="From:"></input>
+      <input className="Search__input" type="text" placeholder="To:"></input>
+      <button className="Search__button" onClick={search}>Search</button>
     </nav>
   );
 }

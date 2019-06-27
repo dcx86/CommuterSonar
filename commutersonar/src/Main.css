@@ -1,3 +1,8 @@
+.Main__sonar {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .Main__sonar__alarm {
   flex-grow: 1;
   border-radius: 0.8rem;

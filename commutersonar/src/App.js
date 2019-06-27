@@ -13,22 +13,21 @@ function App() {
     if (!setStateFromGeolocation) return
     if (!stateToGeolocation) return
 
-    console.log(stateFromGeolocation, stateToGeolocation)
     getTime(stateFromGeolocation, stateToGeolocation, setStateTrip)
-    // setSonar(stateTrip);
   }, [stateFromGeolocation, stateToGeolocation])
 
-  const getInput = async () => {
-    const [ travelFrom, travelTo ] = document.querySelectorAll('input');
-    const trip = parseInput(travelFrom, travelTo);
 
+  const search = () => {
+    const trip = getInput();
     getGeolocation(trip.origin, setStateFromGeolocation);
     getGeolocation(trip.destination, setStateToGeolocation);
   }
 
-  const parseInput = (originRaw, destinationRaw) => {
+  const getInput = () => {
+    const [ originRaw, destinationRaw ] = document.querySelectorAll('input');
     const origin = originRaw.value.trim().toLowerCase();
     const destination = destinationRaw.value.trim().toLowerCase();
+
     return { origin, destination }
   }
 
@@ -37,10 +36,9 @@ function App() {
       <header className="App__header">
         <input className="App__input" type="text" placeholder="From:"></input>
         <input className="App__input" type="text" placeholder="To:"></input>
-        <button className="App__button" onClick={getInput}>Search</button>
+        <button className="App__button" onClick={search}>Search</button>
         {stateFromGeolocation && <p>{stateFromGeolocation.lat} {stateFromGeolocation.lon}</p>}
         {stateToGeolocation && <p>{stateToGeolocation.lat} {stateToGeolocation.lon}</p>}
-        {stateTrip && <p>{stateTrip}</p>}
         </header>
     </div>
   );

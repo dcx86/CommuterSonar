@@ -17,7 +17,12 @@ function playSound() {
 }
 
 function repeatSound(deadline) {
-  console.log(deadline)
+  console.log(deadline.date, deadline.time)
+
+  const time = parseTime(deadline);
+  console.log(time);
+
+  // const unixDeadline = new Date(2037,02,14).getTime();
   // const deadline = time + 60000;
   // const currentTime = Date.now();
   // const timeLeft = (deadline - currentTime) / 1000;
@@ -27,6 +32,13 @@ function repeatSound(deadline) {
   // playSound();
   // if(timeLeft < 0) return;
   // setTimeout( () => repeatSound(time), interval)
+}
+
+const parseTime = (time) => {
+  const [year, month, day] = time.date.split('-');
+  const [hour, minute, second] = time.time.split(':');
+
+  return { year, month: month-1, day, hour, minute, second }
 }
 
 export default repeatSound;

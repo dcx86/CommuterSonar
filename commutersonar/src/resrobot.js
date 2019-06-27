@@ -5,8 +5,7 @@ export const getGeolocation = (location, setState) => {
 }
 
 export const getTime = (origin, destination, setState) => {
-  console.log(process.env.REACT_APP_RESROBOT_API_KEY)
   fetch(`https://api.resrobot.se/v2/trip?key=${process.env.REACT_APP_RESROBOT_API_KEY}&originCoordLat=${origin.lat}&originCoordLong=${origin.lon}&destCoordLat=${destination.lat}&destCoordLong=${destination.lon}&format=json`)
   .then(res => res.json())
-  .then(data => setState(data.Trip[0].LegList.Leg[0].Destination.time));
+  .then(data => setState(data.Trip[0].LegList.Leg[0].Destination));
 }

@@ -24,8 +24,20 @@ function Nav() {
 
   const search = () => {
     const trip = getInput();
-    getGeolocation(trip.origin, setStateFromGeolocation);
     getGeolocation(trip.destination, setStateToGeolocation);
+
+    if (!trip.origin) {
+      fetchCurrentLocation();
+      return;
+    }
+
+    getGeolocation(trip.origin, setStateFromGeolocation);
+  }
+
+  const fetchCurrentLocation = () => {
+      navigator.geolocation.getCurrentPosition((pos) => {
+        setStateFromGeolocation({ lon: pos.coords.longitude, lat: pos.coords.latitude }) 
+    });
   }
 
   const getInput = () => {
@@ -41,9 +53,9 @@ function Nav() {
       <div className="Search__header">
         <p>Search journey</p>
       </div>
+      <input className="Search__input" type="text" placeholder="From: " hidden></input>
       <input className="Search__input" type="text" placeholder="Hi, where do you want to go?"></input>
-      { false && <input className="Search__input" type="text" placeholder="Hi, where do you want to go?"></input> }}
-      { false && <button className="Search__button" onClick={search}>Search</button> }
+      <button className="Search__button" onClick={search}>Search</button>
     </nav>
   );
 }

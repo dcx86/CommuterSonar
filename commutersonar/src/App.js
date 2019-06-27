@@ -7,11 +7,13 @@ import Footer from './Footer';
 import './App.css';
 
 function App() {
+  const [stateTripInfo, setStateTripInfo] = useState(undefined);
+
   return (
     <div className="App">
       <Header />
-      <Search />
-      <Main />
+      <Search stateTripInfo={stateTripInfo} setStateTripInfo={setStateTripInfo}/>
+      <Main stateTripInfo={stateTripInfo} setStateTripInfo={setStateTripInfo}/>
       <Footer />
     </div>
   );

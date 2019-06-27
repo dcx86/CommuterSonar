@@ -1,12 +1,12 @@
 import React from 'react';
-import Sonar from './Sonar';
 import './Main.css';
 
-function Main({}) {
+function Main({ stateTripInfo, setStateTripInfo }) {
   return (
     <section className="Main">
       <div>
-        <p>{}</p>
+        { stateTripInfo && <h6>{stateTripInfo.name}</h6> }
+        { stateTripInfo && <p>{stateTripInfo.time}</p> }
       </div>
     </section>
   );

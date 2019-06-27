@@ -3,11 +3,9 @@ import './Search.css';
 import setSonar from './setSonar';
 import {fetchGeolocation, fetchCurrentGeolocation, fetchTripInfo} from './fetchApi';
 
-function Nav() {
-
+function Search({ stateTripInfo, setStateTripInfo }) {
   const [stateOrigin, setStateOrigin] = useState(undefined);
   const [stateDestination, setStateDestination] = useState(undefined);
-  const [stateTripInfo, setStateTripInfo] = useState(undefined);
 
   useEffect(() => {
     if (stateOrigin && stateDestination) {
@@ -51,4 +49,4 @@ function Nav() {
   );
 }
 
-export default Nav;
+export default Search;

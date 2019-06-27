@@ -1,43 +1,34 @@
 import React, { useState, useEffect } from 'react';
 import './Search.css';
 import setSonar from './setSonar';
-import {getGeolocation, getTime} from './resrobot';
+import {fetchGeolocation, fetchCurrentGeolocation, fetchTripInfo} from './fetchApi';
 
 function Nav() {
 
-  const [stateFromGeolocation, setStateFromGeolocation] = useState(undefined);
-  const [stateToGeolocation, setStateToGeolocation] = useState(undefined);
-  const [stateTrip, setStateTrip] = useState(undefined);
+  const [stateOrigin, setStateOrigin] = useState(undefined);
+  const [stateDestination, setStateDestination] = useState(undefined);
+  const [stateTripInfo, setStateTripInfo] = useState(undefined);
 
   useEffect(() => {
-    if (stateFromGeolocation && stateToGeolocation) {
-      getTime(stateFromGeolocation, stateToGeolocation, setStateTrip)
+    if (stateOrigin && stateDestination) {
+      fetchTripInfo(stateOrigin, stateDestination, setStateTripInfo)
     }
-
-  }, [stateFromGeolocation, stateToGeolocation])
+  }, [stateOrigin, stateDestination])
   
   useEffect(() => {
-    if (stateTrip) {
-      setSonar(stateTrip);
-    }
-  }, [stateTrip]) 
+    if (stateTripInfo) setSonar(stateTripInfo);
+  }, [stateTripInfo]) 
 
   const search = () => {
     const trip = getInput();
-    getGeolocation(trip.destination, setStateToGeolocation);
+    fetchGeolocation(trip.destination, setStateDestination);
 
     if (!trip.origin) {
-      fetchCurrentLocation();
+      fetchCurrentGeolocation(setStateOrigin);
       return;
     }
 
-    getGeolocation(trip.origin, setStateFromGeolocation);
-  }
-
-  const fetchCurrentLocation = () => {
-      navigator.geolocation.getCurrentPosition((pos) => {
-        setStateFromGeolocation({ lon: pos.coords.longitude, lat: pos.coords.latitude }) 
-    });
+    fetchGeolocation(trip.origin, setStateOrigin);
   }
 
   const getInput = () => {

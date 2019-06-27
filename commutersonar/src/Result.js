@@ -1,17 +1,17 @@
 import React from 'react';
-import './Card.css';
+import './Result.css';
 
-function Card({ stateTripInfo }) {
+function Result({ stateTripInfo }) {
   return (
-    <div className="Card">
-      <div className="Card__header">
+    <div className="Result">
+      <div className="Result__header">
         { stateTripInfo && <p>{stateTripInfo.name}</p> }
       </div>
-      <div className="Card__body">
+      <div className="Result__body">
         { stateTripInfo && <p>{stateTripInfo.time}</p> }
       </div>
     </div>
   );
 }
 
-export default Card
+export default Result

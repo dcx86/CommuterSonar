@@ -1,22 +1,22 @@
-.Card{
+.Result{
   margin-top: 2rem;
   display: flex;
   flex-direction: column;
 }
 
-.Card__header {
+.Result__header {
   font-weight: bold;
   background-color: #048f46;
   margin-left: 3rem;
   margin-right: 3rem;
 }
 
-.Card__header p {
+.Result__header p {
   margin: 0 auto;
   padding: 0.5rem;
 }
 
-.Card__body {
+.Result__body {
   font-weight: bold;
   max-height: 4rem;
   background-color: wheat;
@@ -24,7 +24,7 @@
   margin-right: 3rem;
 }
 
-.Card__input {
+.Result__input {
   min-height: 4rem;
   margin-bottom: 0.5rem;
   margin-left: 3rem;
@@ -34,7 +34,7 @@
   font-size: 1.2rem;
 }
 
-.Card__button {
+.Result__button {
   border: none;
   min-height: 2rem;
   margin-top: 0.5rem;

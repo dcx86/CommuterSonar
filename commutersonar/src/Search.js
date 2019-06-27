@@ -1,23 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import './Search.css';
+import Result from './Result';
 import setSonar from './setSonar';
 import {fetchGeolocation, fetchCurrentGeolocation, fetchTripInfo} from './fetchApi';
 
 function Search({ stateTripInfo, setStateTripInfo }) {
-  const [stateOrigin, setStateOrigin] = useState(undefined);
-  const [stateDestination, setStateDestination] = useState(undefined);
+  const [ stateOrigin, setStateOrigin ] = useState(undefined);
+  const [ stateDestination, setStateDestination ] = useState(undefined);
 
   useEffect(() => {
     if (stateOrigin && stateDestination) {
       fetchTripInfo(stateOrigin, stateDestination, setStateTripInfo)
     }
-  }, [stateOrigin, stateDestination])
+  }, [ stateOrigin, stateDestination ])
   
-  useEffect(() => {
-    if (stateTripInfo) setSonar(stateTripInfo);
-  }, [stateTripInfo]) 
+  // useEffect(() => {
+  //   if (stateTripInfo) setSonar(stateTripInfo);
+  // }, [ stateTripInfo ]) 
 
-  const search = () => {
+  const searchTrip = () => {
     const trip = getInput();
     fetchGeolocation(trip.destination, setStateDestination);
 
@@ -44,7 +45,8 @@ function Search({ stateTripInfo, setStateTripInfo }) {
       </div>
       <input className="Search__input" type="text" placeholder="From: " hidden></input>
       <input className="Search__input" type="text" placeholder="Hi, where do you want to go?"></input>
-      <button className="Search__button" onClick={search}>Search</button>
+      <button className="Search__button" onClick={searchTrip}>Search</button>
+      <Result stateTripInfo={stateTripInfo} />
     </nav>
   );
 }

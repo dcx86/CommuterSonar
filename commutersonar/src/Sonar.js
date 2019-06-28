@@ -7,8 +7,8 @@ import setSonar from './setSonar';
 function Sonar({stateSonar}) {
 
   const saveAlarm = () => {
-    alert('hi')
-    // if (stateTripInfo) setSonar(stateTripInfo);
+    const { date, time } = stateSonar.origin
+    if (stateSonar) setSonar({ date, time });
     // document.querySelector('.Sonar__setAlarm').className = "Sonar__alarm";
     // document.querySelector('.Sonar__button').setAttribute('hidden', true);
   }

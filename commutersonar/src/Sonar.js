@@ -29,7 +29,7 @@ function Sonar({stateSonar}) {
           { stateSonar && <h3>in</h3>}
           { stateSonar && <h5>{ stateSonar.origin.time }</h5>}
         </div>
-          { false && <button className="Sonar__button" onClick={saveAlarm}>SET SONAR</button> }
+          { true && <button className="Sonar__button" onClick={saveAlarm}>SET SONAR</button> }
       </div>
 
     </div>

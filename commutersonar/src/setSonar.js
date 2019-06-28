@@ -25,7 +25,7 @@ function setSonar(dateTime) {
   console.log(timeLeft)
 
   playSound();
-  if(timeLeft < 0) return;
+  if(timeLeft < 60) return;
   setTimeout( () => setSonar(dateTime), interval)
 }
 

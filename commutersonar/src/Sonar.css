@@ -31,7 +31,7 @@
 }
 
 .Sonar__alarm__header {
-  background-color: #048f46;
+  background-color: #048f46 !important;
   font-weight: bold;
 }
 

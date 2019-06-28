@@ -3,13 +3,15 @@ import icon from './icons/hearing.svg';
 import './Sonar.css';
 import { getUnixTime } from './parsing';
 import setSonar from './setSonar';
+import Countdown from 'react-countdown-now';
 
 function Sonar({stateSonar}) {
   
-  if(stateSonar) {
-    const { date, time } = stateSonar.origin
-    const deadline = getUnixTime({ date, time })
-    console.log(deadline);
+  const getDeadline = () => {
+    if(stateSonar) {
+      const { date, time } = stateSonar.origin
+      return getUnixTime({ date, time })
+    }
   }
 
   const saveAlarm = () => {
@@ -23,7 +25,7 @@ function Sonar({stateSonar}) {
     <div className="Sonar">
 
       <div className="Sonar__setAlarm">
-        <div className="Sonar__alarm_header">
+        <div className="Sonar__alarm__header">
           { stateSonar && <h1>{stateSonar.product.name}</h1> }
         </div>
         <img src={icon} className="Sonar__alarm__logo" alt="logo" />
@@ -33,7 +35,7 @@ function Sonar({stateSonar}) {
           { stateSonar && <p>{ stateSonar.destination.name }</p>}
           { stateSonar && <p>{ stateSonar.destination.time }</p>}
           { stateSonar && <p>in</p>}
-          { stateSonar && <p>{ stateSonar.origin.time }</p>}
+          { stateSonar && <Countdown date={getDeadline()}/> }
         </div>
           { true && <button className="Sonar__button" onClick={saveAlarm}>SET SONAR</button> }
       </div>

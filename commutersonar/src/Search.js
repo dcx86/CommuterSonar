@@ -18,6 +18,7 @@ function Search({ stateTripInfo, setStateTripInfo, setStateSonar }) {
     const trip = getInput();
     fetchGeolocation(trip.destination, setStateDestination);
     document.querySelector('input').removeAttribute('hidden');
+    document.querySelector('.Search__results').removeAttribute('hidden');
 
     if (!trip.origin) {
       fetchCurrentGeolocation(setStateOrigin);

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Search.css';
 import Result from './Result';
-import setSonar from './setSonar';
 import {fetchGeolocation, fetchCurrentGeolocation, fetchTripInfo} from './fetchApi';
 
 function Search({ stateTripInfo, setStateTripInfo, setStateSonar }) {
@@ -14,9 +13,6 @@ function Search({ stateTripInfo, setStateTripInfo, setStateSonar }) {
     }
   }, [ stateOrigin, stateDestination, setStateTripInfo ])
   
-  useEffect(() => {
-    // if (stateTripInfo) setSonar(stateTripInfo);
-  }, [ stateTripInfo ]) 
 
   const searchTrip = () => {
     const trip = getInput();

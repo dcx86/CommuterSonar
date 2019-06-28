@@ -43,8 +43,15 @@
 
 }
 
-.Sonar__button {
+.Sonar__body h4 {
+  color: wheat;
+}
 
+.Sonar__body h5 {
+  color: #EE2712
+}
+
+.Sonar__button {
 }
 
 .Sonar__alarm > p {

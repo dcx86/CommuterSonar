@@ -1,6 +1,5 @@
 import React from 'react';
 import './Result.css';
-import { getUnixTime } from './parsing'
 
 function Result({ origin, destination, product, setStateSonar}) {
 

@@ -2,11 +2,13 @@ import React from 'react';
 import './Result.css';
 import { getUnixTime } from './parsing'
 
-function Result({ origin, destination, product }) {
+function Result({ origin, destination, product, setStateSonar}) {
 
   const openSonar = () => {
     document.querySelector('.Search__results').setAttribute('hidden', true);
     document.querySelector('.Sonar').style.display = 'flex';
+    console.log('openSonar')
+    setStateSonar({ origin, destination, product })
   }
 
   return (

@@ -2,10 +2,10 @@ import React from 'react';
 import './Workspace.css';
 import Sonar from './Sonar';
 
-function Workspace({ stateTripInfo }) {
+function Workspace({ stateSonar }) {
   return (
     <section className="Workspace">
-      <Sonar />
+      <Sonar stateSonar={stateSonar}/>
     </section>
   );
 }

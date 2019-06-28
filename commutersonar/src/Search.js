@@ -4,7 +4,7 @@ import Result from './Result';
 import setSonar from './setSonar';
 import {fetchGeolocation, fetchCurrentGeolocation, fetchTripInfo} from './fetchApi';
 
-function Search({ stateTripInfo, setStateTripInfo }) {
+function Search({ stateTripInfo, setStateTripInfo, setStateSonar }) {
   const [ stateOrigin, setStateOrigin ] = useState(undefined);
   const [ stateDestination, setStateDestination ] = useState(undefined);
 
@@ -50,7 +50,7 @@ function Search({ stateTripInfo, setStateTripInfo }) {
       <div className="Search__results">
         { stateTripInfo && stateTripInfo.map((trip, i) => {
           const { Origin, Destination, Product } = trip.LegList.Leg[1];
-          return ( <Result key={i} origin={Origin} destination={Destination} product={Product} /> );
+          return ( <Result key={i} origin={Origin} destination={Destination} product={Product} setStateSonar={setStateSonar}/> );
         })}
       </div>
     </nav>

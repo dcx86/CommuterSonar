@@ -7,13 +7,14 @@ import Footer from './Footer';
 import './App.css';
 
 function App() {
-  const [stateTripInfo, setStateTripInfo] = useState(undefined);
+  const [ stateTripInfo, setStateTripInfo ] = useState(undefined);
+  const [ stateSonar, setStateSonar ] = useState(undefined)
 
   return (
     <div className="App">
       <Header />
-      <Search stateTripInfo={stateTripInfo} setStateTripInfo={setStateTripInfo}/>
-      <Workspace stateTripInfo={stateTripInfo} />
+      <Search stateTripInfo={stateTripInfo} setStateTripInfo={setStateTripInfo} setStateSonar={setStateSonar}/>
+      <Workspace stateSonar={stateSonar}/>
       <Footer />
     </div>
   );

@@ -15,6 +15,7 @@
   margin: 0 auto;
   margin-left: 1rem;
   padding: 0.5rem;
+  color: whitesmoke;
 }
 
 .Result__body {
@@ -32,7 +33,8 @@
 }
 
 .Result__body__button {
-
+  font-weight: bold;
+  color: #EE2712;
 }
 
 .Result__input {

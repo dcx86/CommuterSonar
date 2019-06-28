@@ -21,6 +21,7 @@ function Search({ stateTripInfo, setStateTripInfo }) {
   const searchTrip = () => {
     const trip = getInput();
     fetchGeolocation(trip.destination, setStateDestination);
+    document.querySelector('input').removeAttribute('hidden');
 
     if (!trip.origin) {
       fetchCurrentGeolocation(setStateOrigin);
@@ -38,22 +39,20 @@ function Search({ stateTripInfo, setStateTripInfo }) {
     return { origin, destination }
   }
 
-  const parseTrip = ( tripInfo ) => {
-
-  }
-
   return (
     <nav className="Search">
       <div className="Search__header">
         <p>Search journey</p>
       </div>
-      <input className="Search__input" type="text" placeholder="From: " hidden></input>
+      <input className="Search__input" type="text" placeholder="current location" hidden></input>
       <input className="Search__input" type="text" placeholder="Hi, where do you want to go?"></input>
       <button className="Search__button" onClick={searchTrip}>Search</button>
-      { stateTripInfo && stateTripInfo.map((trip, i) => {
-        const { Origin, Destination, Product } = trip.LegList.Leg[1];
-        return ( <Result key={i} origin={Origin} destination={Destination} product={Product} /> );
-      })}
+      <div className="Search__results">
+        { stateTripInfo && stateTripInfo.map((trip, i) => {
+          const { Origin, Destination, Product } = trip.LegList.Leg[1];
+          return ( <Result key={i} origin={Origin} destination={Destination} product={Product} /> );
+        })}
+      </div>
     </nav>
   );
 }

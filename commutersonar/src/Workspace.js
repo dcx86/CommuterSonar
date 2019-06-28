@@ -5,6 +5,7 @@ import Sonar from './Sonar';
 function Workspace({ stateTripInfo }) {
   return (
     <section className="Workspace">
+      <Sonar />
     </section>
   );
 }
